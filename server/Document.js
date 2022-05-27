@@ -6,4 +6,4 @@ const Document = new Schema({
     data: Object
 })
 
-module.exports = model("Document", Document);
+module.exports = model("Documents", Document);

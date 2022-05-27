@@ -1,11 +1,14 @@
 const mongoose = require("mongoose");
-const Document = require("./Document")
+const Document = require("./Document");
+
+require('dotenv').config()
 
 const { Socket } = require("socket.io");
 
 const defaultValue = "";
 mongoose
-    .connect("mongodb://localhost:27017/googledocs", {
+    .connect(process.env.MONGOURI_STAGING_PRODUCTION, {
+        dbName: "TextEditor",
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })
@@ -16,9 +19,11 @@ mongoose
         console.log(err);
     });
 
+//http://localhost:3000
+
 const io = require("socket.io")(3001, {
     cors: {
-        origin: "http://localhost:3000",
+        origin: "*",
         method: ['GET', 'POST']
     }
 });
