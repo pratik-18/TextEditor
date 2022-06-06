@@ -22,7 +22,7 @@ export default function TextEditor() {
     const [quill, setQuill] = useState();
 
     useEffect(() => {
-        const s = (io(process.env.REACT_APP_SERVER_PORT))
+        const s = (io("http://" + process.env.REACT_APP_SERVER_PORT + ":3001"))
         setSocket(s);
 
         return () => {
