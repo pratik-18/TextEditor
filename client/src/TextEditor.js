@@ -21,10 +21,8 @@ export default function TextEditor() {
     const [socket, setSocket] = useState();
     const [quill, setQuill] = useState();
 
-    console.log(documentId)
-
     useEffect(() => {
-        const s = (io("http://localhost:3001"))
+        const s = (io(process.env.REACT_APP_SERVER_PORT))
         setSocket(s);
 
         return () => {

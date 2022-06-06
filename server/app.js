@@ -7,7 +7,7 @@ const { Socket } = require("socket.io");
 
 const defaultValue = "";
 mongoose
-    .connect(process.env.MONGOURI_STAGING_PRODUCTION, {
+    .connect(process.env.MONGOURI_PRODUCTION, {
         dbName: "TextEditor",
         useNewUrlParser: true,
         useUnifiedTopology: true,
